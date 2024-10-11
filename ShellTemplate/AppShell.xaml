@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ShellTemplate.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ShellTemplate"
+    FlyoutIsPresented="True"
+    Title="ShellTemplate">
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <ContentView>
+                <Label Text="{Binding Title}" TextColor="Red" BackgroundColor="Yellow"
+                       x:DataType="ShellContent"
+                       />
+            </ContentView>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <ContentView>
+                <Label Text="{Binding Text}" TextColor="green" BackgroundColor="Yellow"
+                       x:DataType="MenuItem"
+                       />
+            </ContentView>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+    <ShellContent Title="ShellContent 1" ContentTemplate="{DataTemplate local:MainPage}"/>
+    <ShellContent Title="ShellContent 2" ContentTemplate="{DataTemplate local:MainPage}"/>
+    <MenuItem     Text= "MenuItem 1"/>
+    <MenuItem     Text= "MenuItem 2" />
+    <ShellContent Title="ShellContent 3" ContentTemplate="{DataTemplate local:MainPage}"/>
+    <FlyoutItem Title="FlyoutItem" FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent Title="Tab1" ContentTemplate="{DataTemplate local:MainPage}" Route="Tab1" Shell.TabBarIsVisible="True"/>
+        <ShellContent Title="Tab2" ContentTemplate="{DataTemplate local:MainPage}" Route="Tab2" Shell.TabBarIsVisible="True"/>
+        <ShellContent Title="Tab3" ContentTemplate="{DataTemplate local:MainPage}" Route="Tab3" Shell.TabBarIsVisible="True"/>
+    </FlyoutItem>
+    <ShellContent Title="ShellContent 4" ContentTemplate="{DataTemplate local:MainPage}"/>
+</Shell>
